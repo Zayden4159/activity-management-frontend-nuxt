@@ -39,7 +39,8 @@
     .dashboard__main {
         grid-area: main;
         padding: 8px 12px;
-        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
     }

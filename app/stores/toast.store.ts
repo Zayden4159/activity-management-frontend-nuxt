@@ -22,5 +22,12 @@ export const useToastStore = defineStore('toast', () => {
         toasts.value = toasts.value.filter(t => t.id !== id)
     }
 
-    return { toasts, add, remove }
+    return {
+        toasts,
+        add,
+        remove,
+        success: (msg: string) => add(msg, 'success'),
+        error: (msg: string) => add(msg, 'error'),
+        info: (msg: string) => add(msg, 'info'),
+    }
 })

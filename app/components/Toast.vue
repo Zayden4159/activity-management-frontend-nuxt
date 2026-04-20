@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { error } from '#build/ui';
-
 const props = defineProps<{
     message: string
     createdAt: Date

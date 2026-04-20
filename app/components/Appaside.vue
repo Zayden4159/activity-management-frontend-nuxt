@@ -70,6 +70,15 @@ const handleLogout = async () => {
         </svg>
         ประเมินพนักงาน
       </nuxt-link>
+      <nuxt-link to="/telegram"
+        class="flex items-center gap-2 p-2 text-sm font-normal text-gray-700 hover:bg-violet-500 hover:text-white rounded-md cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M21 4h-3V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3c-.55 0-1 .45-1 1v3c0 4.29 1.79 6.88 4.81 6.99A6 6 0 0 0 11 17.91V20H8v2h8v-2h-3v-2.09a5.98 5.98 0 0 0 4.19-2.92C20.2 14.88 22 12.29 22 8V5c0-.55-.45-1-1-1M4 8V6h2v6c0 .28.03.56.06.83C4.22 12.12 4 9.31 4 8m9.85 3.62L12 10.65l-1.85.97l.35-2.06L9 8.1l2.07-.3l.93-1.88l.93 1.88l2.07.3l-1.5 1.46zM20 8c0 1.31-.22 4.12-2.06 4.83c.04-.27.06-.55.06-.83V6h2z"
+            stroke-width="0.5" stroke="currentColor" />
+        </svg>
+        จัดการกลุ่ม Telegram
+      </nuxt-link>
     </ul>
 
     <!-- Logout -->
