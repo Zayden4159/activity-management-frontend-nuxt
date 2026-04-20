@@ -41,8 +41,6 @@ interface CreateGroupPayload {
     title: string
 }
 
-const BASE_URL = 'http://localhost:8086/api'
-
 export const useTelegram = defineStore('telegram', () => {
     const totalPages = ref<number>(0)
     const groups = ref<IGroup[]>([])
@@ -51,7 +49,7 @@ export const useTelegram = defineStore('telegram', () => {
 
     const getBots = async () => {
         try {
-            const { data } = await axios.get<ApiResponse<IBot[]>>(`/api/telegram/bot`)
+            const { data } = await axios.get<ApiResponse<IBot[]>>(`/api/telegram/bot`, { withCredentials: true })
 
             if (data.success) {
                 bots.value = data.data || []
@@ -66,7 +64,7 @@ export const useTelegram = defineStore('telegram', () => {
 
     const createBots = async (payload: CreateBotPayload) => {
         try {
-            const { data } = await axios.post<ApiResponse<IBot>>(`/api/telegram/bot`, payload)
+            const { data } = await axios.post<ApiResponse<IBot>>(`/api/telegram/bot`, payload, { withCredentials: true })
             return data
         } catch (err) {
             toastStore.error(getErrorMessage(err))
@@ -76,7 +74,7 @@ export const useTelegram = defineStore('telegram', () => {
 
     const getGroups = async () => {
         try {
-            const { data } = await axios.get<ApiResponse<IGroup[]>>(`/api/telegram/group`)
+            const { data } = await axios.get<ApiResponse<IGroup[]>>(`/api/telegram/group`, { withCredentials: true })
 
             if (data.success) {
                 groups.value = data.data || []
@@ -91,7 +89,7 @@ export const useTelegram = defineStore('telegram', () => {
 
     const createGroups = async (payload: CreateGroupPayload) => {
         try {
-            const { data } = await axios.post<ApiResponse<IGroup>>(`/api/telegram/group`, payload)
+            const { data } = await axios.post<ApiResponse<IGroup>>(`/api/telegram/group`, payload, { withCredentials: true })
             return data
         } catch (err) {
             toastStore.error(getErrorMessage(err))
@@ -101,7 +99,7 @@ export const useTelegram = defineStore('telegram', () => {
 
     const sendMessageT = async (payload: SendMessagePayload) => {
         try {
-            const { data } = await axios.post<ApiResponse<null>>(`/api/telegram/send-message`, payload)
+            const { data } = await axios.post<ApiResponse<null>>(`/api/telegram/send-message`, payload, { withCredentials: true })
             return data
         } catch (err) {
             toastStore.error(getErrorMessage(err))
