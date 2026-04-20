@@ -150,6 +150,7 @@ const handleAddGroup = async () => {
         isAddGroupModalOpen.value = false
         groupInput.uid_group = ''
         groupInput.title = ''
+        await telegramStore.getGroups()
     }
 }
 
